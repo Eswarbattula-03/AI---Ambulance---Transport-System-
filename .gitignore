@@ -1,0 +1,29 @@
+# Target directories for Java / Maven
+**/target/
+*.class
+
+# Node modules and Vite dist
+**/node_modules/
+**/dist/
+**/build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python venv and pycache
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+*.egg-info/
+
+# IDE / OS files
+.idea/
+.vscode/
+*.swp
+*.DS_Store
+Thumbs.db
