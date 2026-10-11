@@ -23,6 +23,7 @@ spring:
     enabled: ${SPRING_FLYWAY_ENABLED:true}
     baseline-on-migrate: true
     validate-on-migrate: false
+    ignore-migration-patterns: "*:mismatched"
     locations: classpath:db/migration
 
 app:
