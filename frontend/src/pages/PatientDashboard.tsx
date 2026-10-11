@@ -52,8 +52,9 @@ export const PatientDashboard: React.FC = () => {
     if (!activeEmergency) return;
 
     // Connect STOMP WebSocket for real-time updates
+    const wsUrl = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8080/ws'),
+      webSocketFactory: () => new SockJS(wsUrl),
       onConnect: () => {
         client.subscribe(`/topic/emergencies/${activeEmergency.id}`, (message) => {
           const updated: EmergencyResponse = JSON.parse(message.body);

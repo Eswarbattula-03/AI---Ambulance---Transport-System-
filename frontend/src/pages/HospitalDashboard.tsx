@@ -20,8 +20,9 @@ export const HospitalDashboard: React.FC = () => {
   useEffect(() => {
     if (!hospital) return;
 
+    const wsUrl = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8080/ws'),
+      webSocketFactory: () => new SockJS(wsUrl),
       onConnect: () => {
         client.subscribe(`/topic/hospitals/${hospital.id}/incoming`, (msg) => {
           const updated: EmergencyResponse = JSON.parse(msg.body);
